@@ -1,0 +1,44 @@
+
+<div class="card-main">
+    <div class="card-header">
+        <div class="card-inner">
+            <h1 class="card-heading">Add Gantt Group</h1>
+        </div>
+    </div>
+    <div class="card-inner">
+
+        <form name="form" ng-submit="modal.addGanttGroup()" novalidate>
+            <div class="form-group form-group-label">
+                <!-- Modal inputs -->
+                <div class="row">
+                       <div class="col-md-10 col-md-push-1">
+                        <label class="gantt-task-label">Group name</label>
+                        <input class="form-control gantt-task-input" type="text" name="modal.groupName" ng-model="modal.groupName" required>
+                    </div>
+                </div>
+                <div class="row">
+                       <!-- Color picker -->
+                       <div class="col-md-10 col-md-push-1">
+                            <div class="col-sm-7">
+                                <color-picker ng-model="modal.groupColor" required></color-picker>
+                            </div>
+                            <div class="col-sm-5" style="background-color: {{modal.groupColor}};">
+                                <div class="gantt-test-color"></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal buttons -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <button type="submit" class="btn btn-blue waves-button waves-effect waves-light" ng-disabled="form.$invalid">Add</button>
+                        <label class="btn btn-red waves-button waves-effect waves-light" ng-click="modal.cancelar()">Close</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

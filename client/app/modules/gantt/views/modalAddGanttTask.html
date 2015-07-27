@@ -1,0 +1,67 @@
+
+<div class="card-main">
+    <div class="card-header">
+        <div class="card-inner">
+            <h1 class="card-heading">Add Gantt Task</h1>
+        </div>
+    </div>
+    <div class="card-inner">
+
+        <form name="form" ng-submit="modal.addGanttTask()" novalidate>
+            <div class="form-group form-group-label">
+                <!-- Modal inputs -->
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="gantt-task-label">Select task group</label>
+                        <select class="form-control"
+                            ng-model="modal.selectedGroup"
+                            ng-init="modal.selectedGroup"
+                            ng-options="item for item in modal.groupsList"
+                        required></select>
+                    </div>
+                </div>
+                <div class="row">
+                       <div class="col-md-10 col-md-push-1">
+                        <label class="gantt-task-label">Task name</label>
+                        <input class="form-control gantt-task-input" type="text" name="modal.taskName" ng-model="modal.taskName" required>
+                    </div>
+                </div>
+                <div class="row">
+                       <div class="col-md-10 col-md-push-1">
+                        <label class="gantt-task-label">Assigned worker</label>
+                        <select class="form-control"
+                            ng-model="modal.selectedWorker"
+                            ng-init="modal.selectedWorker"
+                            ng-options="item for item in modal.workersList"
+                        required></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start date timepicker -->
+            <div class="col-sm-6" style="display:inline-block; min-height:290px;">
+                <datepicker ng-model="modal.startDate" min-date="modal.today" show-weeks="true" class="well well-sm" required></datepicker>
+            </div>
+
+            <!-- Finish date timepicker -->
+            <div class="col-sm-6" style="display:inline-block; min-height:290px;">
+                <datepicker ng-model="modal.finishDate" init-date="modal.startDate" min-date="modal.startDate" show-weeks="true" class="well well-sm" required></datepicker>
+            </div>
+
+            <!-- Modal buttons -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <button type="submit" class="btn btn-blue waves-button waves-effect waves-light" ng-disabled="form.$invalid">Add</button>
+                        <label class="btn btn-red waves-button waves-effect waves-light" ng-click="modal.cancelar()">Close</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+

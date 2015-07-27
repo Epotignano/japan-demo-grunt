@@ -1,0 +1,55 @@
+<header class="header">
+	<ul class="nav nav-list pull-left">
+		<li>
+			<a data-toggle="menu" href=".menuNav">
+				<span class="access-hide">Menu</span>
+				<span class="icon icon-menu icon-lg"></span>
+			</a>
+		</li>
+	</ul>
+	<a class="header-logo" ui-sref="app.home">RAPIDO</a>
+	<ul class="nav nav-list pull-right">
+		<li>
+			<a data-toggle="menu" href=".profileNav">
+				<span class="access-hide">John Smith</span>
+				<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="assets/images/users/avatar-001.jpg"></span>
+			</a>
+		</li>
+	</ul>
+</header>
+
+<menu-scroll></menu-scroll>
+
+<nav class="menu menu-right profileNav">
+	<div class="menu-scroll">
+		<div class="menu-wrap">
+			<div class="menu-top">
+				<div class="menu-top-img">
+					<img alt="John Smith" src="assets/images/samples/landscape.jpg">
+				</div>
+				<div class="menu-top-info">
+					<a class="menu-top-user" href=""><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="assets/images/users/avatar-001.jpg"></span>User Name</a>
+				</div>
+				<div class="menu-top-info-sub">
+					<small>Some additional information about User</small>
+				</div>
+			</div>
+			<div class="menu-content">
+				<ul class="nav">
+					<li>
+						<a ui-sref="app.auth[login]"><span class="icon icon-account-box"></span>Login</a>
+					</li>
+					<li>
+						<a ui-sref="app.auth[register]"><span class="icon icon-account-box"></span>Register</a>
+					</li>
+					<li>
+						<a ui-sref="app.auth[addUserInformation]"><span class="icon icon-add-to-photos"></span>Profile Settings</a>
+					</li>
+					<li>
+						<a href=""><span class="icon icon-exit-to-app"></span>Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
