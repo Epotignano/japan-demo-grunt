@@ -1,0 +1,77 @@
+
+<div class="content-heading">
+	<div class="container">
+		<h1 class="heading">{{list.tasks.name}} tasks</h1>
+	</div>
+</div>
+
+<div class="content-inner">
+	<div class="container">
+		<div class="row">
+
+			<div class="item-options">
+				<label class="btn btn-blue waves-button waves-effect waves-light" ng-click="list.modalRegisterTask(list.tasks.id)">Add task</label>
+			</div>
+
+			<p class="error-loading" ng-hide="list.taskspop.length">
+				There are none tasks yet! Please create one touching the button above
+			</p>
+
+			<div class="tile tile-collapse" ng-repeat="item in list.taskspop">
+				<div class="tile-toggle" data-target="#tile-collapse-{{$index}}" data-toggle="tile">
+					<div class="pull-left tile-side">
+						<div class="avatar status-{{item.status}} avatar-sm">
+							<span class="icon icon-event-note"></span>
+						</div>
+					</div>
+					<div class="tile-action" data-ignore="tile">
+						<ul class="nav nav-list pull-right">
+							<li>
+								<a ng-if="item.status == 'pending'" ng-click="list.statusToDone(item)"><span class="icon icon-done"></span></a>
+								<a ng-if="item.status == 'done'" ng-click="list.statusToPending(item)"><span class="icon icon-clear"></span></a>
+							</li>
+						</ul>
+					</div>
+					<div class="tile-inner">
+						<div class="text-overflow">{{item.name}}</div>
+					</div>
+				</div>
+				<div class="tile-active-show collapse" id="tile-collapse-{{$index}}">
+					<div class="tile-sub">
+
+						<div class="task-description">
+							{{item.description}}
+						</div>
+
+
+            <div class="task-description">
+              <list-photo model="item" list-coded="item.codeImages" list-url="item.imagesUrl" list-id="item.imagesId"></list-photo>
+            </div>
+
+				<ul class="list task-step-list" ng-repeat="step in item.steps track by $index">
+                    <li class="item item-checkbox task-step-item">
+
+                       <!-- <div class="squaredFour">-->
+                          <input class="no-checkbox" type="checkbox" value="None" id="{{step}}" name="check" />
+                          <label for="{{step}}"> {{step}}</label>
+                        <!--</div>-->
+                    </li>
+                </ul>
+
+					</div>
+					<div class="tile-footer">
+						<ul class="nav nav-list pull-left">
+							<li>
+								<a data-dismiss="tile" href="javascript:void(0)">&nbsp;Close</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+

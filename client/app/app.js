@@ -20,7 +20,8 @@ angular
     // our modules
     'ganttModule',
     'landingModule',
-    'homeModule'
+    'homeModule',
+    'tasksModule'
   ])
 
   .constant('fireRef', 'https://japan-demo.firebaseio.com/')

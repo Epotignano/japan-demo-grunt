@@ -88,12 +88,12 @@ var ganttCtrl = function(showGantt, ganttService, $modal, $state) {
             "false": "Can't edit graph"
         },
         // gantt-table
-        columns: ['from', 'to', 'model.worker'],
+        columns: ['model.worker', 'from', 'to' ],
         columnsHeaders: {
-            //'model.name' : 'Name',
-            'from': 'From',
-            'to': 'To',
-            'model.worker': 'Worker'
+         // 'model.name' : 'Name',
+          'model.worker': 'Worker',
+          'from': 'From',
+          'to': 'To'
         },
         columnsClasses: {
             //'model.name' : 'gantt-column-name',
