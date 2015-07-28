@@ -62,8 +62,9 @@ var ganttService = function(fireRef, Kutral, $q, $firebaseArray) {
     var saveGanttDataPromise = $q.defer();
       var promisesArray = [];
 
-    function _isFunctionA(object) {
-      return object && getClass.call(object) == '[object Function]';
+    function _isFunction(functionToCheck) {
+      var getType = {};
+      return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
     }
 
       dataToUpdate.forEach(function(data) {
@@ -73,11 +74,11 @@ var ganttService = function(fireRef, Kutral, $q, $firebaseArray) {
             if(data.tasks && data.tasks.length) {
 
               data.tasks.forEach(function(task) {
-                if(_isFunctionA(task.from)) {
+                if(_isFunction(task.from)) {
                   task.from = task.from.format();
                 }
 
-                if(_isFunctionA(task.to)) {
+                if(_isFunction(task.to)) {
                   task.to= task.to.format();
                 }
               });
