@@ -16,9 +16,12 @@ var ganttService = function(fireRef, Kutral, $q, $firebaseArray) {
   service.showGantt = function(){
     var ganttPromise = $q.defer();
 
-    ganttDirectory.find().$asArray(function(data) {
+    var ganttRef = $firebaseArray(new Firebase(fireRef + '/gantt'));
+
+    ganttRef.$loaded(function(data) {
       ganttPromise.resolve(data);
     });
+
 
     return ganttPromise.promise;
   }
