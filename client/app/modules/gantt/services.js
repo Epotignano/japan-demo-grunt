@@ -74,11 +74,11 @@ var ganttService = function(fireRef, Kutral, $q, $firebaseArray) {
             if(data.tasks && data.tasks.length) {
 
               data.tasks.forEach(function(task) {
-                if(_isFunction(task.from)) {
+                if(task.from.format) {
                   task.from = task.from.format();
                 }
 
-                if(_isFunction(task.to)) {
+                if(task.to.format) {
                   task.to= task.to.format();
                 }
               });
