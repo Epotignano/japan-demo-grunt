@@ -52,6 +52,8 @@ console.log("modal register gantt task controller");
         modal.taskName = "";
         modal.startDate = modal.today;
         modal.finishDate = "";
+
+        $modalInstance.dismiss();
     };
 
     // modal close
@@ -60,7 +62,7 @@ console.log("modal register gantt task controller");
     };
 
     // DatePicker settings
-    modal.today = moment();
+    modal.today = moment().format('ll');
     modal.startDate = modal.today;
     modal.finishDate = moment();
 
