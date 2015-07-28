@@ -28,3 +28,8 @@ angular
   .run(function ($state, $rootScope) {
     $rootScope.$state = $state;
   })
+
+.config(function($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/gantt');
+}
+)
