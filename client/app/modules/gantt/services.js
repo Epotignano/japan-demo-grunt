@@ -60,20 +60,31 @@ var ganttService = function(fireRef, Kutral, $q, $firebaseArray) {
       var promisesArray = [];
 
       dataToUpdate.forEach(function(data) {
-        var loopPromise = $q.defer()
+        var loopPromise = $q.defer();
+            console.log(data);
+
+            if(data.tasks && data.tasks.length) {
+
+              data.tasks.forEach(function(task) {
+                task.from = task.from.format();
+                task.to= task.to.format();
+              });
+
+              console.log(data);
+            }
 
             service.updateGantt(data).then(function(ganttUpdate){
                 loopPromise.resolve(ganttUpdate)
-            })
+            });
 
         promisesArray.push(loopPromise.promise);
-      })
+      });
 
-      
+
       $q.all(promisesArray).then(function(results) {
         saveGanttDataPromise.resolve(results);
       })
-      
+
       return saveGanttDataPromise.promise
   }
 

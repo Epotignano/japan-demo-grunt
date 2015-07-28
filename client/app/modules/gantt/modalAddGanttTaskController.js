@@ -60,9 +60,9 @@ console.log("modal register gantt task controller");
     };
 
     // DatePicker settings
-    modal.today = new Date();
+    modal.today = moment();
     modal.startDate = modal.today;
-    modal.finishDate = "",
+    modal.finishDate = moment();
 
     modal.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy',
                       'shortDate', 'fullDate', 'dd/MM/yyyy'];
